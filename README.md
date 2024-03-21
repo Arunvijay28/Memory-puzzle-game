@@ -1,5 +1,5 @@
 # Memory-puzzle-game
 
-# 1 . simon game
+# 1 . Simon Says.
 
-# 2 . card playing
+# 2 . Memory Match.

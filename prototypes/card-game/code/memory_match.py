@@ -79,7 +79,7 @@ class GAME:
 
 #main program
 if __name__=="__main__":
-    mem_match=GAME(12,1)
+    mem_match=GAME(2,1)
     mem_match.grid_set()
     mem_match.play()
 
