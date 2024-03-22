@@ -63,6 +63,9 @@ function handleplayerclick(event){
         posplused++;
     }
 
+    else if (btnindex !=simonpattern[posplused]){
+        alert('game over!! press start to play again');
+    }
     if (posplused>=simonpattern.length){
         posplused=0
         addsimonpattern()
