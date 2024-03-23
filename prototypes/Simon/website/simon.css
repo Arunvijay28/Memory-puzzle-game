@@ -3,7 +3,9 @@ body{
     --font-color:white;
     --bg-color:#101010;
 }
+
 .container{
+    top:25%;
     display: grid;
     grid-template-columns: repeat(3,100px);
     grid-template-rows: repeat(3,100px) ;
@@ -12,6 +14,7 @@ body{
     position: relative;
     justify-content: center;
 }
+
 .Simon{
     font-size:2em;
     text-align: center;
@@ -24,6 +27,7 @@ body{
     -webkit-box-shadow:0 0.625em 1em 0 var(--data-c);
         box-shadow: 0 0.625em 1em 0 var(--data-c);
 }
+
 .btn-smn{
     border-radius: 25%;
     padding: 10px;
@@ -48,6 +52,7 @@ body{
                 box-shadow: 0 0.625em 1em 0 var(--bg-color);
     }
 }
+
 @keyframes ilum {
     from{
         background-color: var(--data-c);
@@ -72,6 +77,40 @@ body{
     border-radius: 25px;
     position: relative;
     top: 10px;
-    margin-left:6.8rem;
+    margin-left:0.5rem;
     cursor: pointer;
+}
+
+.reset_btn{
+    height: 50px;
+    width: 100px;
+    background-color:#f0f0f0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+    border-color: #f0f0f0;
+    border-radius: 25px;
+    position: relative;
+    top: 10px;
+    margin-left:7rem;
+    cursor: pointer;
+}
+
+.info{
+    position: fixed;
+    font-size:1.5em ;
+    margin: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    color: var(--font-color);
+}
+
+#max-score{
+    top:0%;
+    left: 0%;
+    /* color: var(--font-color); */
+}
+
+#score{
+    top:0%;
+    right: 0%;
+    /* color: var(--font-color); */
 }
