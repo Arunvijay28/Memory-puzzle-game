@@ -1,7 +1,13 @@
 .container{
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(var(--i),100px);
     grid-template-rows: repeat(var(--i),100px);
+=======
+    grid-template-columns:repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+    justify-content: center;
+>>>>>>> d045a535f4020d0f20c41a36b00c0fb5f2b124ee
 }
 
 .container .board{

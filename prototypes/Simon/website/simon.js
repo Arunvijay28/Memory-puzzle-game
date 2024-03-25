@@ -4,6 +4,25 @@ const simonButtons=document.querySelectorAll(".btn-smn");
 const leveltext=document.querySelector("#score");
 const maxleveltext=document.querySelector("#max-score");
 
+var sound1 =new Audio();
+sound1.src="sounds/sound_a4.wav";
+var sound2 =new Audio();
+sound2.src="sounds/sound_b3.wav";
+var sound3 =new Audio();
+sound3.src="sounds/sound_c3.wav";
+var sound4 =new Audio();
+sound4.src="sounds/sound_d3.wav";
+var sound5 =new Audio();
+sound5.src="sounds/sound_d4.wav";
+var sound6 =new Audio();
+sound6.src="sounds/sound_e3.wav";
+var sound7 =new Audio();
+sound7.src="sounds/sound_f3.wav";
+var sound8 =new Audio();
+sound8.src="sounds/sound_f4.wav";
+var sound9 =new Audio();
+sound9.src="sounds/sound_g4.wav";
+
 let posplused;
 let playing=false;
 let simonpattern=[];
