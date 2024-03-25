@@ -1,0 +1,18 @@
+.container{
+    display: grid;
+    grid-template-columns:repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+}
+
+.container .board{
+    border-radius: 5px;
+    margin: 1.5px;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.container button[ilum],.container button:active{
+    background-color:lightgreen;
+}
+
