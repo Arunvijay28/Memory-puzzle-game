@@ -9,9 +9,10 @@ const setcount=(cnt)=>{         // function to setup the counter for checking th
     count=cnt;
 }
 
-const setnvalue=(ne)=>{
+const setnvalue=(ne)=>{         // function to chnage the value of the n
     n=ne;
 }
+
 const boardsize = (n=3) => {
     board = n * n;
     switch (board) {
@@ -25,7 +26,7 @@ const boardsize = (n=3) => {
             titles = 10;
             break
         default:
-            titles = 7;
+            titles = 10+3;
             break;
     }
 
@@ -40,6 +41,10 @@ const boardsize = (n=3) => {
         container.appendChild(button);
         gridbuttons.push(button); // Push the new button into the gridbuttons array
     }
+
+    gridbuttons.forEach(btn => {
+        btn.removeEventListener('click', handleplayerclick);
+    });
 
     // Reassign event listeners to the new set of buttons
     gridbuttons.forEach((btn, i) => {
@@ -78,6 +83,14 @@ const showmatrix = () => {
     }
 }
 
+const remove=()=>{
+   
+    for(let i=0;i<gridbuttons.length;i++){
+        gridbuttons[i].removeAttribute('ilum');
+        gridbuttons[i].removeAttribute('wrng');
+    }
+}
+
 const handlestart = () => {
     matrixrandomgenerate();
     showmatrix();
@@ -87,27 +100,30 @@ var count = 0;
 var mistake_count = 0
 
 const handleplayerclick = (event) => {
-
-    var tostorewrngbtn=0;
-
+    mistake_count=0       // else after wrong move it wont show any error or win msg  
     var but_ind = parseInt(event.target.style.getPropertyValue('--i'));
     user_mat.push(but_ind);
     gridbuttons[but_ind].setAttribute('ilum', 'true');
     count += 1;
 
-    // console.log(user_mat);
-    // console.log(matrix)
-   
+    // console.log(count,titles)
+
     if (count === titles) {
         matrix.sort();
         user_mat.sort();
-       
+        console.log(matrix,user_mat)
+
         for (let i = 0; i < titles; i++) {
             if (matrix[i] != user_mat[i]) {
-                tostorewrngbtn+=user_mat[i];
+
                 gridbuttons[user_mat[i]].setAttribute('wrng', 'true');
+                setTimeout(()=>gridbuttons[user_mat[i]].removeAttribute('wrng'),1000);      // uncolor from red to green which is touched by user
                 mistake_count = 1;
+                setTimeout(()=>{remove()},2000);        // a function which removes all the attributes of the button which is called after 2 seonds after invoking wrng statement
+                // handlestart();
+                setcount(0)         // else title and count value will not be same
                 break;
+
             }
         }
 
@@ -115,7 +131,7 @@ const handleplayerclick = (event) => {
             for (let rem = 0; rem < user_mat.length; rem++) {
                 gridbuttons[user_mat[rem]].removeAttribute('ilum');
             }
-            alert('you won');
+            alert('you won');           
             setnvalue(n+1);                 // to increment the value of n
             boardsize(n);
             matrixrandomgenerate();
@@ -124,11 +140,6 @@ const handleplayerclick = (event) => {
             // count=0                    // to set the counter value to 0
             // handlestart();
         }
-        // if(mistake_count===1){
-        //     gridbuttons.forEach((btn)=>{
-        //         btn.removeAttribute('wrng');
-        //     })
-        // }
     }
 }
 
