@@ -2,8 +2,9 @@ const container=document.querySelector(".container");
 const start=document.querySelector(".start");
 let board=25  ;   // 3x3 tiles
 let titles=0;
-container.style.setProperty('--i',Math.sqrt(board));
-console.log(container.getAttribute('--i'))
+container.style.setProperty('--no',Math.sqrt(board));
+// console.log(container.getAttribute('--i'))
+
 switch(board){
     case 9:
         titles=4;
