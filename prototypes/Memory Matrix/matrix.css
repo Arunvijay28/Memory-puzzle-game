@@ -3,7 +3,6 @@
     grid-template-columns: repeat(var(--no),100px);
     grid-template-rows: repeat(var(--no),100px);
     justify-content: center;
-
 }
 
 .container .board{
@@ -18,5 +17,7 @@
     background-color:lightgreen;
 }
 
-
+.container button[wrng]{
+    background-color: red;
+}
 
