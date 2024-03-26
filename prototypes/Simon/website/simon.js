@@ -23,6 +23,8 @@ sound8.src="sounds/sound_f4.wav";
 var sound9 =new Audio();
 sound9.src="sounds/sound_g4.wav";
 
+const soundobjarr=[sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9];
+
 let posplused;
 let playing=false;
 let simonpattern=[];
@@ -60,7 +62,6 @@ function addsimonpattern(){
     simonpattern.push(ranind(0,simonButtons.length-1));
     console.log(simonpattern)
 }
-
 function playsimonpattern(){
     playing=true
     let i=0;
@@ -68,6 +69,7 @@ function playsimonpattern(){
         const btn=simonButtons[simonpattern[i]];
         console.log(btn);
         btn.setAttribute('ilum','true');
+        soundobjarr[simonpattern[i]].play();
         setTimeout(()=>btn.removeAttribute('ilum'),500);
         i++;
 
@@ -75,7 +77,6 @@ function playsimonpattern(){
             clearInterval(interval);
             playing=false;
         }
-
     },600)
 
 }
