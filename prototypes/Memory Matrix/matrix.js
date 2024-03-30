@@ -5,6 +5,8 @@ let titles = 0;
 let board = 0;
 let gridbuttons = []; // Initialize as an empty array
 
+let  startclicked=false;
+
 const setcount=(cnt)=>{         // function to setup the counter for checking the titles
     count=cnt;
 }
@@ -92,8 +94,13 @@ const remove=()=>{
 }
 
 const handlestart = () => {
-    matrixrandomgenerate();
-    showmatrix();
+    if(!startclicked){
+        startclicked=true;
+        start.disabled = true;
+        matrixrandomgenerate();
+        showmatrix();
+    }
+   
 }
 
 var count = 0;
@@ -137,6 +144,7 @@ const handleplayerclick = (event) => {
             matrixrandomgenerate();
             showmatrix();
             setcount(0);
+            handlestart();
             // count=0                    // to set the counter value to 0
             // handlestart();
         }
