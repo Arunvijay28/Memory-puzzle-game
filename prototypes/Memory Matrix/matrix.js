@@ -100,7 +100,6 @@ const handlestart = () => {
         matrixrandomgenerate();
         showmatrix();
     }
-   
 }
 
 var count = 0;

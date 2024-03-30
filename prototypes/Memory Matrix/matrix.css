@@ -4,20 +4,38 @@
     grid-template-rows: repeat(var(--no),100px);
     justify-content: center;
 }
-
+body{
+    background-color: #f4c531;
+    overflow: hidden;
+}
 .container .board{
     border-radius: 5px;
     margin: 1.5px;
-    background-color: cornflowerblue;
+    background-color:#ffffff;
     border: 2px solid black;
     cursor: pointer;
 }
 
 .container button[ilum],.container button:active{
-    background-color:palevioletred;
+    background-color:greenyellow;
 }
 
 .container button[wrng]{
     background-color: red;
 }
+h3{
+    font-size:40px;
+    color: #ffffff;
+    position: relative;
+    left: 31rem;
+    justify-content: center;
+}
 
+.start{
+    height: 50px;
+    width:100px;
+    position: relative;
+    left: 36.5rem;
+    border-radius: 25px;
+
+}
