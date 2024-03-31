@@ -1,0 +1,44 @@
+body{
+    background: #f4c531;
+    overflow: hidden;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(var(--no),100px);
+    grid-template-rows: repeat(var(--no),100px);
+    justify-content: center;
+}
+
+.container .board{
+    border-radius: 5px;
+    margin: 1.5px;
+    background-color:#ffffff;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.container button[ilum],.container button:active{
+    background-color:greenyellow;
+}
+
+.container button[wrng]{
+    background-color: red;
+}
+h3{
+    margin-top: 2%;
+    font-size:40px;
+    color: #ffffff;
+    position: relative;
+    left: 36rem;
+    justify-content: center;
+}
+
+.start{
+    height: 50px;
+    width:100px;
+    position: relative;
+    left: 42rem;
+    border-radius: 25px;
+
+}
