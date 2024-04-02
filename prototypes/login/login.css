@@ -1,9 +1,8 @@
 body {
     /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
-    background: linear-gradient(to right,purple,grey);
+    background: linear-gradient(to bottom,purple,crimson,orange,yellow);
     font-family: 'Poppins', sans-serif;
 }
-
 #form {
     width: 300px;
     margin-top:4%;
