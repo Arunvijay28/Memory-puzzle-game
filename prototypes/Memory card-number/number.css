@@ -12,6 +12,8 @@ body {
   width: 26.87em;
   padding: 2.5em 3em;
   background-color: #ffffff;
+  width: fit-content;
+  height: fit-content;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
