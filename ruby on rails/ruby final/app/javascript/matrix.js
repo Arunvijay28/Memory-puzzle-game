@@ -92,7 +92,6 @@ const remove=()=>{
         gridbuttons[i].removeAttribute('wrng');
     }
 }
-
 const handlestart = () => {
     if(!startclicked){
         startclicked=true;
@@ -126,7 +125,7 @@ const handleplayerclick = (event) => {
                 setTimeout(()=>gridbuttons[user_mat[i]].removeAttribute('wrng'),1000);      // uncolor from red to green which is touched by user
                 mistake_count = 1;
                 setTimeout(()=>{remove()},2000);        // a function which removes all the attributes of the button which is called after 2 seonds after invoking wrng statement
-                // handlestart();
+                // handlestart();    
                 setcount(0)         // else title and count value will not be same
                 break;
 
