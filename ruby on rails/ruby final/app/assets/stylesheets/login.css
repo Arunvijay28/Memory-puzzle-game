@@ -1,8 +1,7 @@
 body {
-    background: linear-gradient(to right,purple,grey);
+    background: linear-gradient(to right,orange,#f4c531,#f4e100);
     font-family: 'Poppins', sans-serif;
 }
-
 #form {
     width: 300px;
     margin-top:4%;
