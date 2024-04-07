@@ -1,0 +1,107 @@
+/* Style for the heading */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the buttons */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style for the input field */
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  /* Style for the div containing the input field and button */
+  #roomInput {
+    margin-top: 20px;
+  }
+  
+  /* Style for the join button within the input field div */
+  #joinBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #joinBtn:hover {
+    background-color: #0077a3;
+  }
+  
+#gameContainer {
+  text-align: center;
+}
+
+#sequenceDisplay {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#colors {
+  margin-bottom: 20px;
+}
+
+.colorBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.colorBtn[data-color="red"] {
+  background-color: red;
+}
+
+.colorBtn[data-color="green"] {
+  background-color: green;
+}
+
+.colorBtn[data-color="blue"] {
+  background-color: blue;
+}
+
+.colorBtn[data-color="yellow"] {
+  background-color: yellow;
+}
+
+#startBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background-color: #45a049;
+}

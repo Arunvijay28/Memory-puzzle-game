@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simon says</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Simon Says</h1>
+    <button id="createRoomBtn">Create Room</button>
+    <br>
+    <button id="joinRoomBtn">Join Room</button>
+    <div id="roomInput">
+        <input type="text" id="roomNameInput" placeholder="Enter Room Name">
+        <button id="joinBtn">Join</button>
+    </div>
+    <div id="gameContainer">
+        <div id="sequenceDisplay"></div>
+        <div id="message"></div>
+        <div id="colors">
+            <button class="colorBtn" data-color="red"></button>
+            <button class="colorBtn" data-color="green"></button>
+            <button class="colorBtn" data-color="blue"></button>
+            <button class="colorBtn" data-color="yellow"></button>
+        </div>
+        <button id="startBtn">Start Game</button>
+    </div>
+
+    <
+</body>
+</html>
