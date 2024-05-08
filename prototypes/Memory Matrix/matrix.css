@@ -3,6 +3,7 @@
     grid-template-columns: repeat(var(--no),100px);
     grid-template-rows: repeat(var(--no),100px);
     justify-content: center;
+<<<<<<< HEAD
 }
 body{
     background-color: #f4c531;
@@ -12,11 +13,21 @@ body{
     border-radius: 5px;
     margin: 1.5px;
     background-color:#ffffff;
+=======
+
+}
+
+.container .board{
+    border-radius: 5px;
+    margin: 1.5px;
+    background-color: cornflowerblue;
+>>>>>>> 3a4fd04bbe72e45a8891d1800c358d45f3765cef
     border: 2px solid black;
     cursor: pointer;
 }
 
 .container button[ilum],.container button:active{
+<<<<<<< HEAD
     background-color:greenyellow;
 }
 
@@ -39,3 +50,10 @@ h3{
     border-radius: 25px;
 
 }
+=======
+    background-color:lightgreen;
+}
+
+
+
+>>>>>>> 3a4fd04bbe72e45a8891d1800c358d45f3765cef
