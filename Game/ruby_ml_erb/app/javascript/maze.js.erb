@@ -1,0 +1,232 @@
+function isSafe(maze, x, y) {
+    const n = maze.length;
+    return x >= 0 && x < n && y >= 0 && y < maze[0].length && maze[x][y] === 1;
+}
+
+function solveMaze(maze) {
+    const n = maze.length;
+    const solution = Array.from({ length: n }, () => Array(maze[0].length).fill(0));
+    const path = [];
+
+    function solveMazeUtil(x, y) {
+        if (x === n - 1 && y === maze[0].length - 1) {
+            solution[x][y] = 1;
+            path.push([x, y]);
+            return true;
+        }
+
+        if (isSafe(maze, x, y)) {
+            solution[x][y] = 1;
+            path.push([x, y]);
+
+            if (solveMazeUtil(x + 1, y)) return true;
+            if (solveMazeUtil(x, y + 1)) return true;
+
+            solution[x][y] = 0;
+            path.pop();
+            return false;
+        }
+        return false;
+    }
+
+    if (solveMazeUtil(0, 0)) {
+        return { solution, path };
+    } else {
+        return null;
+    }
+}
+
+function displaySolution(solution, path) {
+    if (!solution) {
+        console.log("No solution found.");
+        return;
+    }
+
+    for (let i = 0; i < solution.length; i++) {
+        for (let j = 0; j < solution[i].length; j++) {
+            if (solution[i][j] === 1) {
+                document.querySelector(`#cell-${i}-${j}`).classList.add('path');
+            }
+        }
+    }
+
+    // Visualize the backtrack path
+    for (let i = 0; i < path.length; i++) {
+        const [x, y] = path[i];
+        setTimeout(() => {
+            document.querySelector(`#cell-${x}-${y}`).classList.add('backtrack');
+        }, i * 300); // Adjust the timing for visualization
+    }
+}
+
+let level1 = [
+    [2, 0, 1, 0],
+    [1, 1, 1, 1],
+    [1, 0, 1, 0],
+    [1, 0, 1, 1]
+];
+let level2 = [
+    [2, 1, 1, 0, 1, 0],
+    [1, 0, 1, 1, 1, 1],
+    [0, 0, 1, 0, 0, 0],
+    [1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0],
+    [1, 1, 1, 0, 1, 1]
+];
+let level3 = [
+    [2, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+    [1, 0, 0, 1, 0, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+    [1, 1, 1, 0, 1, 0, 1, 1, 0, 1],
+    [1, 0, 0, 0, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
+    [1, 1, 1, 0, 0, 0, 1, 0, 0, 1]
+];
+
+let mazearray = level1;
+let Level = document.getElementById("level-select");
+let maze = document.getElementById("maze-container");
+let human = document.getElementById("human");
+let treasure = document.getElementById("treasure");
+let send = document.getElementById("send");
+
+let arroykeyActions = {
+    "ArrowUp": "up",
+    "ArrowDown": "down",
+    "ArrowLeft": "left",
+    "ArrowRight": "right"
+}
+let moveString;
+document.addEventListener('audioRecorded', function(event) {
+    moveString = event.detail.move.trim();
+    console.log("Move String:", moveString);
+});
+console.log("ms" + moveString);
+
+let validmoves = ["up", "down", "left", "right"]
+
+function sethumanposition(t, l) {
+    human.style.top = t + "px";
+    human.style.left = (l + 20) + "px";
+}
+
+function settreasureposition(b, r) {
+    treasure.style.bottom = b + "px";
+    treasure.style.right = r + "px";
+}
+
+Level.addEventListener("change", function() {
+    let level = Level.value;
+    if (level == '1') {
+        mazearray = level1;
+    } else if (level == '2') {
+        mazearray = level2;
+    } else if (level == '3') {
+        mazearray = level3;
+    }
+    maze.innerHTML = `
+        <img src="<%= asset_path('human.jpg') %>" id="human" width="34px" height="72px" alt="human">
+        <img src="<%= asset_path('treasure.jpg') %>" id="treasure" width="72px" height="50px" alt="treasure">
+    `;
+    createMaze();
+    human = document.getElementById("human");
+    treasure = document.getElementById("treasure");
+});
+
+function createMaze() {
+    for (let i = 0; i < mazearray.length; i++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < mazearray[i].length; j++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.id = `cell-${i}-${j}`; // Add ID to each cell
+            if (mazearray[i][j] == 0) {
+                cell.classList.add("wall");
+            }
+            row.appendChild(cell);
+        }
+        maze.appendChild(row);
+    }
+    sethumanposition(0, 0);
+    blink();
+}
+
+function gethumanpos() {
+    for (let i = 0; i < mazearray.length; i++) {
+        for (let j = 0; j < mazearray[i].length; j++) {
+            if (mazearray[i][j] == 2) {
+                return [i, j];
+            }
+        }
+    } // Human not found
+}
+
+function blink() {
+    let cells = document.querySelectorAll(".wall");
+    cells.forEach(cell => {
+        cell.setAttribute('ilum', 'true');
+        setTimeout(() => {
+            cell.removeAttribute('ilum');
+        }, 3000); // Set to 3 seconds
+    });
+}
+
+send.addEventListener('click', () => {
+    let human = document.getElementById("human");
+    let treasure = document.getElementById("treasure");
+    let treasureleft = treasure.offsetLeft;
+    let treasuretop = treasure.offsetTop;
+    let humanleft = human.offsetLeft;
+    let humantop = human.offsetTop;
+    let humanpos = gethumanpos();
+    console.log(treasuretop, treasureleft, humantop, humanleft)
+    if (moveString == "right") {
+        if (humanpos[1] < mazearray[0].length - 1 && mazearray[humanpos[0]][humanpos[1] + 1] != 0) {
+            humanleft += 76;
+            human.style.left = humanleft + "px";
+            mazearray[humanpos[0]][humanpos[1]] = 1;
+            mazearray[humanpos[0]][humanpos[1] + 1] = 2;
+            console.log(treasureleft - humanleft, treasuretop - humantop);
+        }
+    }
+    if (moveString == "left") {
+        if (humanpos[1] > 0 && mazearray[humanpos[0]][humanpos[1] - 1] != 0) {
+            humanleft -= 76;
+            human.style.left = humanleft + "px";
+            mazearray[humanpos[0]][humanpos[1]] = 1;
+            mazearray[humanpos[0]][humanpos[1] - 1] = 2;
+            console.log(treasureleft - humanleft, treasuretop - humantop);
+        }
+    }
+    if (moveString == "up") {
+        if (humanpos[0] > 0 && mazearray[humanpos[0] - 1][humanpos[1]] != 0) {
+            humantop -= 76;
+            human.style.top = humantop + "px";
+            mazearray[humanpos[0]][humanpos[1]] = 1;
+            mazearray[humanpos[0] - 1][humanpos[1]] = 2;
+            console.log(treasureleft - humanleft, treasuretop - humantop);
+        }
+    }
+    if (moveString == "down") {
+        if (humanpos[0] < mazearray.length - 1 && mazearray[humanpos[0] + 1][humanpos[1]] != 0) {
+            humantop += 76;
+            human.style.top = humantop + "px";
+            mazearray[humanpos[0]][humanpos[1]] = 1;
+            mazearray[humanpos[0] + 1][humanpos[1]] = 2;
+            console.log(treasureleft - humanleft, treasuretop - humantop);
+        }
+    }
+    if (Math.abs(treasureleft - humanleft) < 38 && Math.abs(treasuretop - humantop) < 38) {
+        setTimeout(function() {
+            alert("You won");
+            const result = solveMaze(mazearray);
+            if (result) {
+                displaySolution(result.solution, result.path);
+            }
+        }, 100);
+    }
+});

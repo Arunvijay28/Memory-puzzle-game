@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <%= stylesheet_link_tag('maze')%>
+</head>
+<body onload="createMaze()">
+    <h1>Treasure Hunt</h1>
+    <select id="level-select">
+        <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <option value="3">Level 3</option>
+    </select>
+    <div id="maze-container">
+        <%= image_tag 'human.jpg', id: 'human', width: '34px', height: '72px', alt: 'human' %>
+        <%= image_tag 'treasure.jpg', id: 'treasure', width: '72px', height: '50px', alt: 'treasure' %>
+    </div>
+    <button id="recordButton">Record Audio</button>
+    
+    <div id="output"></div>
+
+        <script>
+        $(document).ready(function() {
+        $('#recordButton').click(function() {
+            $.ajax({
+            url: '/record_audio',
+            type: 'POST',
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                $('#output').text(response.output);
+                const event = new CustomEvent('audioRecorded', { detail: { move: response.output } });
+                document.dispatchEvent(event);
+                } else {
+                $('#output').text('Failed to run script');
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#output').text('An error occurred: ' + error);
+            }
+            });
+        });
+        });
+
+        </script>
+    <button id="send">send</button>
+    <%= javascript_include_tag('maze.js') %>
+    
+</body>
+</html>

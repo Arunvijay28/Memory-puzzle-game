@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(to right,orange,#f4c531,#f4e100);
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sel_container{
+    height: 500px;
+    width: 1000px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(to right,rgb(244, 185, 74),#f9d049,#f7ea5e);
+    border-radius: 16px;
+    box-shadow: 40px 40px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.2px);
+    -webkit-backdrop-filter: blur(12.2px);
+    border: 1px solid linear-gradient(to right,orange,#f4c531,#f4e100);
+}
+button{
+    border: none;
+    width: 25%;
+    height: 100px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size:20px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.b1{/* Green */
+    background-color:#B044C1;
+}
+.b2{
+    background-color:#B044C1;
+}
+.b3{
+    background-color:#B044C1;
+}
+.b4{
+    background-color: #B044C1;
+}
+
+.selection_heading{
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+.Logout{
+    height: 50px;
+    width: 200px;
+    color: red;
+}

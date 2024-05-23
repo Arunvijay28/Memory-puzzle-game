@@ -1,0 +1,86 @@
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right,orange,#f4c531,#f4e100);
+      font-family: 'Poppins', sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      width: 100%;
+      max-width: 600px;
+      background-color: #fff;
+    }
+    .card table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .card th, .card td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    .card th {
+      background-color: #f2f2f2;
+    }
+    .back-button {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .back-button a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .back-button a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Dashboard</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>High Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sound Memory</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>Memory Matrix</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Card Matching</td>
+            <td>16</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="back-button">
+      <a href="/">Back</a>
+    </div>
+  </div>
+</body>

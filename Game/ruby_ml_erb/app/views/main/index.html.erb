@@ -1,0 +1,25 @@
+<div>
+    <% if @user %>
+        logged in as <%= @user.email %>
+        <%= button_to "Logout" ,logout_path,method: :delete,class:"Logout"%>
+        <button class="Logout">
+            <a href="/dashboard" style="text-decoration:None;">Dashboard</a>
+        </button>
+    <% end%>
+</div>
+
+<head>
+    <%= stylesheet_link_tag('index')%>
+</head>
+<div class="wrapper">
+    <h2 class="selection_heading">Memory Game</h2>
+    <div class="sel_container">
+        <button class="b1">
+            <a href="/sign_up" style="color: white; text-decoration: none;">New User</a>
+        </button>
+        <button class="b2">
+            <a href="/sign_in" style="color: white; text-decoration: none;">Login</a>
+        </button>
+       
+    </div>
+</div>
