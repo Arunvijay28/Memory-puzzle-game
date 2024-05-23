@@ -8,6 +8,7 @@ To create a web based application for Memory Puzzle Game using Ruby on Rails
 [Algorithms used](#Algorithmsused)  
 
 ## Description
+The Memory Puzzle Game, developed using Ruby on Rails, offers a multifaceted cognitive challenge through four distinct modes: Sound Memory, Memory Matrix, Memory Card, and Treasure Hunter. In Sound Memory, players enhance their auditory recall by reproducing sequences of sounds. Memory Matrix tests visual and spatial memory as players recreate briefly shown patterns on a grid. Memory Card is a classic card-matching game that improves visual memory and concentration. The most advanced mode, Treasure Hunter, employs a Convolutional Neural Network (CNN) for speech recognition, allowing players to use voice commands, and utilizes a backtracking algorithm to determine and display the optimal path to a hidden treasure, combining elements of memory, strategy, and technology for a comprehensive cognitive workout
 
 <a id="Walkthrough"></a>
 ## Walkthrough
