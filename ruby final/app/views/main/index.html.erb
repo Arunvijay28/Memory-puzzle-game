@@ -1,7 +1,0 @@
-<div>
-    <h1>Welcome home</h1>
-    <% if @user %>
-        logged in as <%= @user.email %>
-        <%= button_to "Logout" ,logout_path,method: :delete%>
-    <% end%>
-</div>
